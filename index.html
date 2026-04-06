@@ -323,60 +323,6 @@
             margin-bottom: 0.5rem;
         }
         
-        /* Testimonials Section */
-        .testimonials-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .testimonial {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            display: none;
-        }
-        
-        .testimonial.active {
-            display: block;
-        }
-        
-        .testimonial-text {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-        
-        .testimonial-author {
-            font-weight: 600;
-        }
-        
-        .testimonial-role {
-            color: var(--primary-color);
-            font-size: 0.9rem;
-        }
-        
-        .slider-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-        
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            background-color: #ccc;
-            border-radius: 50%;
-            margin: 0 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .slider-dot.active {
-            background-color: var(--primary-color);
-        }
-        
         /* Contact Section */
         .contact-container {
             display: flex;
@@ -766,41 +712,6 @@
         </div>
     </section>
     
-    <!-- Testimonials Section -->
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>O Que Nossos Clientes Dizem</h2>
-            </div>
-            
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <div class="testimonial-text">
-                        <p>"A Jardinagem alves transformou completamente o meu jardim. A equipe é extremamente profissional, pontual e o resultado superou todas as minhas expectativas. Recomendo sem hesitar!"</p>
-                    </div>
-                    <div class="testimonial-author">Maria Silva</div>
-                    <div class="testimonial-role">Cliente Residencial</div>
-                </div>
-                
-                <div class="testimonial active">
-                    <div class="testimonial-text">
-                        <p>"Contratamos a jardinagem alves para o paisagismo da nossa empresa e ficamos impressionados com a qualidade do serviço. O ambiente ficou mais agradável e nossos clientes sempre elogiam."</p>
-                    </div>
-                    <div class="testimonial-author">João Pereira</div>
-                    <div class="testimonial-role">Empresário</div>
-                </div>
-                
-              
-                
-                <div class="slider-nav">
-                    <div class="slider-dot" data-index="0"></div>
-                    <div class="slider-dot active" data-index="1"></div>
-                    <div class="slider-dot" data-index="2"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Contact Section -->
     <section class="section" id="contact">
         <div class="container">
@@ -980,60 +891,6 @@
                 navMenu.classList.remove('active');
             });
         });
-        
-        // Testimonials Slider
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.slider-dot');
-        
-        dots.forEach(dot => {
-            dot.addEventListener('click', () => {
-                const index = dot.getAttribute('data-index');
-                
-                // Hide all testimonials
-                testimonials.forEach(testimonial => {
-                    testimonial.classList.remove('active');
-                });
-                
-                // Remove active class from all dots
-                dots.forEach(dot => {
-                    dot.classList.remove('active');
-                });
-                
-                // Show selected testimonial
-                testimonials[index].classList.add('active');
-                
-                // Add active class to selected dot
-                dot.classList.add('active');
-            });
-        });
-        
-        // Auto slide testimonials
-        let currentSlide = 0;
-        const totalSlides = testimonials.length;
-        
-        function autoSlide() {
-            // Hide all testimonials
-            testimonials.forEach(testimonial => {
-                testimonial.classList.remove('active');
-            });
-            
-            // Remove active class from all dots
-            dots.forEach(dot => {
-                dot.classList.remove('active');
-            });
-            
-            // Increment current slide
-            currentSlide = (currentSlide + 1) % totalSlides;
-            
-            // Show current testimonial
-            testimonials[currentSlide].classList.add('active');
-            
-            // Add active class to current dot
-            dots[currentSlide].classList.add('active');
-        }
-        
-        // Set interval for auto slide
-        setInterval(autoSlide, 5000);
         
         // Form submission
         const contactForm = document.getElementById('contactForm');
